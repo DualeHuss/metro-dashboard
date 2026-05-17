@@ -1,6 +1,6 @@
 # Developer Manual
 
-This is the same dev manual that's in the bottom half of the main `README.md`. The rubric asked us to put documentation in a `docs/` folder so we mirrored it here.
+This is the same dev manual that's in the bottom half of the main `README.md`, mirrored here for the `docs/` folder.
 
 ## Project structure
 
