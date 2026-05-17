@@ -43,14 +43,18 @@ function findStation(input) {
     if (byCode) return byCode;
   }
 
-  // then try matching by name
+  // then try exact name match
   for (const s of stationList) {
     if (s.name.toLowerCase() === text) return s;
   }
-  // partial match
+  // partial match if nothing exact found
   for (const s of stationList) {
     if (s.name.toLowerCase().includes(text)) return s;
   }
+
+  // tried filtering by line code here but it got complicated, leaving for now
+  // const lineMatch = stationList.filter(s => s.lines.includes(text.toUpperCase()));
+
   return null;
 }
 
@@ -66,6 +70,8 @@ async function handleSearch(e) {
     showError('No station matches "' + input + '"');
     return;
   }
+
+  console.log('found station:', station.name, station.code);
 
   // show the results section
   document.getElementById('results').style.display = 'block';

@@ -73,9 +73,10 @@ async function loadBoard(code) {
     }
 
     // update last refresh time
+    // had to use a separate variable because 't' was already used for trains above lol
     const now = new Date();
-    const t = now.toLocaleTimeString();
-    document.getElementById('refresh-info').textContent = 'Last updated: ' + t;
+    const timeStr = now.toLocaleTimeString();
+    document.getElementById('refresh-info').textContent = 'Last updated: ' + timeStr;
   } catch (err) {
     console.log('board error', err);
     board.innerHTML = '<p class="empty">Could not load arrivals.</p>';

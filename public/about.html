@@ -23,45 +23,51 @@
 
     <div class="intro">
       <h1>About this project</h1>
-      <p>An INST 377 project for the University of Maryland.</p>
+      <p>INST 377 final project — University of Maryland, Spring 2025.</p>
     </div>
 
     <div class="about-content">
 
+      <h2>About me</h2>
+      <p>I'm Duale Hussein, a junior at UMD studying Information Science. I ride the Metro a lot and always found it annoying that I had to use like three different apps to get all the info I wanted before leaving for the station. That's basically why I built this.</p>
+
       <h2>The problem</h2>
-      <p>Metro riders in the DMV need a simple way to check train times and station info. WMATA already publishes the data, but it isn't in one easy-to-read dashboard. Riders often have to click around to get a complete picture.</p>
+      <p>WMATA already has an API with all this data, it's just not in one place. I wanted to see live arrivals, weather at the station, and know which stations people search for most, all on one page. Took longer than expected honestly but I think it works pretty well now.</p>
 
       <h2>Who it's for</h2>
       <ul>
-        <li>UMD students commuting into DC</li>
-        <li>DMV residents and daily Metro riders</li>
-        <li>Tourists trying to figure out the system</li>
+        <li>UMD students commuting into DC (like me)</li>
+        <li>DMV residents who ride the Metro regularly</li>
+        <li>Anyone who doesn't want to dig through the WMATA website</li>
       </ul>
 
       <h2>How it works</h2>
-      <p>The frontend is plain HTML, CSS, and JavaScript. The backend is a Node.js + Express server that calls the WMATA and OpenWeather APIs (to avoid exposing API keys in the browser). Every search also gets logged into a Supabase Postgres database, which powers the "most searched" chart on the home page.</p>
+      <p>The frontend is plain HTML, CSS, and JavaScript — no frameworks, which I actually liked because it forced me to understand what was happening. The backend is Node.js + Express. I had to put the API calls on the server side because I couldn't put my API keys directly in the browser JS (they would be visible to anyone). The search history is stored in a Supabase database and that's what powers the bar chart on the home page.</p>
 
       <h2>Data sources</h2>
       <ul>
-        <li><b>WMATA</b> — station list and live arrival predictions</li>
-        <li><b>OpenWeather</b> — current weather at each station</li>
-        <li><b>Supabase</b> — stores search history</li>
+        <li><b>WMATA API</b> — station list and real-time arrival predictions</li>
+        <li><b>OpenWeather API</b> — current weather conditions at each station</li>
+        <li><b>Supabase</b> — stores search history (Postgres database)</li>
       </ul>
 
       <h2>Technologies used</h2>
       <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Node.js and Express (backend)</li>
-        <li>Chart.js (JS library — bar chart on home page)</li>
-        <li>Leaflet (JS library — map on trains page)</li>
-        <li>Supabase (database)</li>
-        <li>Vercel (deployment)</li>
+        <li>HTML, CSS, vanilla JavaScript (frontend)</li>
+        <li>Node.js + Express (backend)</li>
+        <li>Chart.js — for the bar chart</li>
+        <li>Leaflet.js — for the map on the trains page</li>
+        <li>Supabase — database</li>
+        <li>Vercel — hosting/deployment</li>
       </ul>
+
+      <h2>What I'd improve with more time</h2>
+      <p>The popular searches count is being done in JavaScript right now which is kind of inefficient. I'd move that to a SQL view. Also no caching on the predictions endpoint so every search hits the WMATA API directly. For a class project it's fine but it would be a problem at scale.</p>
 
     </div>
 
     <div class="footer">
-      INST 377, 2025.
+      Duale Hussein &mdash; INST 377, Spring 2025
     </div>
   </div>
 
