@@ -23,7 +23,7 @@
 
     <div class="intro">
       <h1>About this project</h1>
-      <p>INST 377 final project — University of Maryland, Spring 2025.</p>
+      <p>INST 377 final project, University of Maryland, Spring 2025.</p>
     </div>
 
     <div class="about-content">
@@ -42,32 +42,32 @@
       </ul>
 
       <h2>How it works</h2>
-      <p>The frontend is plain HTML, CSS, and JavaScript — no frameworks, which I actually liked because it forced me to understand what was happening. The backend is Node.js + Express. I had to put the API calls on the server side because I couldn't put my API keys directly in the browser JS (they would be visible to anyone). The search history is stored in a Supabase database and that's what powers the bar chart on the home page.</p>
+      <p>The frontend is plain HTML, CSS, and JavaScript (no frameworks), which I actually liked because it forced me to understand what was happening. The backend is Node.js + Express. I had to put the API calls on the server side because I couldn't put my API keys directly in the browser JS (they would be visible to anyone). The search history is stored in a Supabase database and that's what powers the bar chart on the home page.</p>
 
       <h2>Data sources</h2>
       <ul>
-        <li><b>WMATA API</b> — station list and real-time arrival predictions</li>
-        <li><b>OpenWeather API</b> — current weather conditions at each station</li>
-        <li><b>Supabase</b> — stores search history (Postgres database)</li>
+        <li><b>WMATA API</b> -station list and real-time arrival predictions</li>
+        <li><b>OpenWeather API</b> -current weather conditions at each station</li>
+        <li><b>Supabase</b> -stores search history (Postgres database)</li>
       </ul>
 
       <h2>Technologies used</h2>
       <ul>
-        <li>HTML, CSS, vanilla JavaScript (frontend — no frameworks)</li>
+        <li>HTML, CSS, vanilla JavaScript (frontend -no frameworks)</li>
         <li>Node.js + Express (backend server)</li>
-        <li><b>Chart.js</b> — JavaScript library used for the "most searched stations" bar chart on the home page</li>
-        <li><b>Leaflet.js</b> — JavaScript library used for the interactive station map on the trains page</li>
-        <li>Supabase — Postgres database for storing search history</li>
-        <li>Vercel — hosting and deployment</li>
+        <li><b>Chart.js</b> -JavaScript library used for the "most searched stations" bar chart on the home page</li>
+        <li><b>Leaflet.js</b> -JavaScript library used for the interactive station map on the trains page</li>
+        <li>Supabase -Postgres database for storing search history</li>
+        <li>Vercel -hosting and deployment</li>
       </ul>
 
       <h2>How the frontend connects to the backend</h2>
-      <p>All data on the frontend is loaded through the Fetch API — nothing is hardcoded. There are four fetch calls total:</p>
+      <p>All data on the frontend is loaded through the Fetch API -nothing is hardcoded. There are four fetch calls total:</p>
       <ul>
-        <li><code>/api/stations</code> — loads the station list for the search dropdown</li>
-        <li><code>/api/predictions/:code</code> — gets live train arrivals for the selected station (calls WMATA)</li>
-        <li><code>/api/weather/:code</code> — gets current weather at the station (calls OpenWeather)</li>
-        <li><code>/api/searches</code> and <code>/api/searches/popular</code> — logs searches to Supabase and loads the chart data</li>
+        <li><code>/api/stations</code> -loads the station list for the search dropdown</li>
+        <li><code>/api/predictions/:code</code> -gets live train arrivals for the selected station (calls WMATA)</li>
+        <li><code>/api/weather/:code</code> -gets current weather at the station (calls OpenWeather)</li>
+        <li><code>/api/searches</code> and <code>/api/searches/popular</code> -logs searches to Supabase and loads the chart data</li>
       </ul>
 
       <h2>What I'd improve with more time</h2>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="footer">
-      Duale Hussein &mdash; INST 377, Spring 2025
+      Duale Hussein, INST 377, Spring 2025
     </div>
   </div>
 

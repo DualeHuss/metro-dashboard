@@ -1,6 +1,6 @@
 # Developer Manual
 
-This document is for future developers who want to set up, run, or build on the Metro Dashboard project. I tried to write it so you don't need to know anything about this specific codebase going in — just general web dev knowledge.
+This document is for future developers who want to set up, run, or build on the Metro Dashboard project. I tried to write it so you don't need to know anything about this specific codebase going in - just general web dev knowledge.
 
 (This is also mirrored in the bottom half of `README.md`.)
 
@@ -52,9 +52,9 @@ PORT=3000
 ```
 
 Where to get each key:
-- **WMATA_API_KEY** — sign up at https://developer.wmata.com/signup/ (free)
-- **OPENWEATHER_API_KEY** — sign up at https://openweathermap.org/api (free tier is fine)
-- **SUPABASE_URL** and **SUPABASE_KEY** — create a free project at https://supabase.com, then go to Settings → API
+- **WMATA_API_KEY** - sign up at https://developer.wmata.com/signup/ (free)
+- **OPENWEATHER_API_KEY** - sign up at https://openweathermap.org/api (free tier is fine)
+- **SUPABASE_URL** and **SUPABASE_KEY** - create a free project at https://supabase.com, then go to Settings → API
 
 ### Database setup
 
@@ -72,7 +72,7 @@ npm start
 
 Open http://localhost:3000 in your browser. You should see the home page with a station search form.
 
-For development you can also use `npm run dev` — it does the same thing right now, I just kept both scripts in case I added a watcher later.
+For development you can also use `npm run dev` - it does the same thing right now, I just kept both scripts in case I added a watcher later.
 
 ## How to run the tests
 
@@ -80,7 +80,7 @@ For development you can also use `npm run dev` — it does the same thing right 
 npm test
 ```
 
-The test file is `tests/test.js`. It spins up the Express app on port 4567 and hits each endpoint to make sure it responds with an expected status code. The tests are designed to pass even without real API keys — they accept both success and error responses, so you don't need `.env` configured to run them.
+The test file is `tests/test.js`. It spins up the Express app on port 4567 and hits each endpoint to make sure it responds with an expected status code. The tests are designed to pass even without real API keys - they accept both success and error responses, so you don't need `.env` configured to run them.
 
 Expected output when everything is working:
 
@@ -144,7 +144,7 @@ Returns 400 if the code format is invalid. Returns the raw WMATA `Trains` array 
 }
 ```
 
-This is the **external API call** endpoint — it proxies WMATA's StationPrediction API.
+This is the **external API call** endpoint - it proxies WMATA's StationPrediction API.
 
 ---
 
@@ -207,16 +207,16 @@ Query param: `?limit=N` (default 5)
 }
 ```
 
-This is the **database read** endpoint. Note: the count aggregation currently happens in JavaScript, not SQL — see Known Issues below.
+This is the **database read** endpoint. Note: the count aggregation currently happens in JavaScript, not SQL - see Known Issues below.
 
 ---
 
 ## Known issues
 
-- **No caching on predictions** — every search hits the WMATA API directly. Fine for a class project but would need server-side caching if traffic picked up.
-- **Popular count done in JS** — the `/api/searches/popular` endpoint pulls up to 500 rows and counts them in JavaScript. I should have done this with a SQL `GROUP BY` query or a Postgres view, but got it working this way and ran out of time to refactor.
-- **No retry logic** — if WMATA or OpenWeather returns an error, the frontend just shows "Could not load." There's no retry.
-- **Map tiles can be slow** — the Leaflet map uses OpenStreetMap tiles which are sometimes slow to load, especially on mobile.
+- **No caching on predictions** - every search hits the WMATA API directly. Fine for a class project but would need server-side caching if traffic picked up.
+- **Popular count done in JS** - the `/api/searches/popular` endpoint pulls up to 500 rows and counts them in JavaScript. I should have done this with a SQL `GROUP BY` query or a Postgres view, but got it working this way and ran out of time to refactor.
+- **No retry logic** - if WMATA or OpenWeather returns an error, the frontend just shows "Could not load." There's no retry.
+- **Map tiles can be slow** - the Leaflet map uses OpenStreetMap tiles which are sometimes slow to load, especially on mobile.
 
 ## Future development roadmap
 
