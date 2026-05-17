@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metro Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Chart.js (JS library #1) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">Metro <span>Dashboard</span></div>
+      <ul class="nav">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/trains">Trains</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <h1>Check your Metro station</h1>
+      <p>Search a WMATA station to see live arrivals and current weather.</p>
+    </div>
+
+    <form id="search-form" class="search-form">
+      <input
+        id="station-input"
+        type="text"
+        list="station-list"
+        placeholder="Type a station name or code (like A01)"
+        required
+      >
+      <button type="submit">Search</button>
+      <datalist id="station-list"></datalist>
+    </form>
+
+    <div id="error-box" class="error" style="display: none;"></div>
+
+    <div id="results" style="display: none;">
+
+      <div class="section">
+        <h2 id="result-name">Station</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3 style="margin-bottom: 14px;">Next trains</h3>
+            <div id="predictions">
+              <p class="empty">Loading...</p>
+            </div>
+            <div style="margin-top: 12px;">
+              <a id="full-link" href="/trains" class="link">See full arrivals board →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom: 14px;">Weather</h3>
+            <div id="weather">
+              <p class="empty">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <h2>Most searched stations</h2>
+      <div class="card">
+        <div class="chart-container">
+          <canvas id="chart"></canvas>
+        </div>
+        <p id="chart-empty" class="empty" style="display: none;">No searches yet.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Data from WMATA, OpenWeather, and Supabase.
+    </div>
+  </div>
+
+  <script src="/helpers.js"></script>
+  <script src="/home.js"></script>
+</body>
+</html>

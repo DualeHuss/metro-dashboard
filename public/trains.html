@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Times - Metro Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Leaflet (JS library #2) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">Metro <span>Dashboard</span></div>
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/trains" class="active">Trains</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div id="no-station" style="display: none;">
+      <div class="intro">
+        <h1>No station selected</h1>
+        <p>Go back to the <a href="/" class="link">home page</a> and pick a station.</p>
+      </div>
+    </div>
+
+    <div id="content" style="display: none;">
+      <div class="station-header">
+        <div class="code" id="station-code">--</div>
+        <h1 id="station-name">--</h1>
+        <div class="lines-row" id="lines-row"></div>
+        <div class="refresh-info" id="refresh-info">Updates every 30 seconds.</div>
+      </div>
+
+      <div class="section">
+        <h2>Live arrivals</h2>
+        <div class="card">
+          <div id="board">
+            <p class="empty">Loading...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Station location</h2>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Data from WMATA.
+    </div>
+  </div>
+
+  <script src="/helpers.js"></script>
+  <script src="/trains.js"></script>
+</body>
+</html>
