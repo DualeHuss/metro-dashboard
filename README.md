@@ -2,14 +2,14 @@
 
 A simple dashboard for WMATA Metro riders in the DMV. You can search for any Metro station and see live train arrival times, the weather, and where the station is on a map.
 
-This is our group project for INST 377.
+This is my project for INST 377.
 
 ## What it does
 
 - Search for any WMATA station by name or code (like A01)
 - See real-time train arrivals for that station
 - See the current weather at that station
-- View the full arrivals board on a separate page with a map
+- See the full arrivals board on a separate page with a map
 - See which stations have been searched most often
 
 ## Target browsers
@@ -20,17 +20,17 @@ Built and tested in:
 - Firefox
 - Edge
 
-We aimed for modern browsers. Not tested on Internet Explorer.
+I aimed for modern browsers. Not tested on Internet Explorer.
 
 ## Developer Manual
 
-See the [Developer Manual](#developer-manual-1) below. It's also mirrored at `docs/DEVELOPER.md`.
+See the [Developer Manual](#developer-manual-1) below. It's also at `docs/DEVELOPER.md`.
 
 ---
 
 # Developer Manual
 
-For anyone picking up this project after us.
+For anyone picking up this project after me.
 
 ## Project structure
 
@@ -60,7 +60,7 @@ metro-dashboard/
 
 ## How to install
 
-You'll need Node.js 18 or higher (we use built-in `fetch`).
+You'll need Node.js 18 or higher (the server uses built-in `fetch`).
 
 ```
 git clone <this repo>
@@ -97,7 +97,7 @@ Then open http://localhost:3000
 npm test
 ```
 
-The tests just check that each endpoint responds. They don't require real API keys to pass.
+The tests just check that each endpoint responds. They don't need real API keys to pass.
 
 ## API endpoints
 
@@ -112,10 +112,10 @@ Returns a list of every WMATA station with code, name, lat, lon, and lines.
 ### `GET /api/predictions/:code`
 Live train arrival predictions for the given station. The `code` is the 3-character WMATA code (like A01, B11).
 
-This is our external API call (the WMATA prediction API).
+This is the external API call (the WMATA prediction API).
 
 ### `GET /api/weather/:code`
-Returns current weather at the given station. We look up the lat/lon from WMATA, then call OpenWeather with those coordinates.
+Returns current weather at the given station. The server looks up the lat/lon from WMATA, then calls OpenWeather with those coordinates.
 
 ### `POST /api/searches`
 Records that someone searched for a station. Writes to the Supabase database. Body should be:
@@ -133,18 +133,18 @@ Reads from the database and returns the most-searched stations. Use `?limit=N` t
 3. Under Environment Variables, add all four keys from your `.env`
 4. Deploy
 
-The `vercel.json` file handles routing — `/api/*` goes to our Express app, everything else is served from `public/`.
+The `vercel.json` file handles routing. `/api/*` goes to the Express app, everything else is served from `public/`.
 
 ## Known issues
 
-- The predictions API gets hit every time someone searches. We should probably cache responses for like 10 seconds.
+- The predictions API gets hit every time someone searches. I should probably cache responses for like 10 seconds.
 - The popular searches count is done in JavaScript, not in SQL. It works fine for now but would need to be a Postgres view if the table got really big.
-- If the WMATA or OpenWeather API is down, the page just shows "Could not load" — we don't retry.
+- If the WMATA or OpenWeather API is down, the page just shows "Could not load". I don't retry.
 - The map uses OpenStreetMap tiles, so if their CDN is slow the map takes a second to show up.
 
 ## Future improvements
 
-Things we wanted to add but didn't have time for:
+Things I wanted to add but didn't have time for:
 - Cache the predictions and weather responses on the server (would cut API calls a lot)
 - Let users save favorite stations using localStorage
 - Show WMATA service alerts on the page
