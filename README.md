@@ -71,9 +71,9 @@ cp .env.example .env
 
 Then fill in `.env` with your keys:
 
-- **WMATA_API_KEY** — sign up at https://developer.wmata.com/signup/
-- **OPENWEATHER_API_KEY** — sign up at https://openweathermap.org/api
-- **SUPABASE_URL** and **SUPABASE_KEY** — make a free Supabase project at https://supabase.com, then go to Settings → API to get them
+- **WMATA_API_KEY** sign up at https://developer.wmata.com/signup/
+- **OPENWEATHER_API_KEY** sign up at https://openweathermap.org/api
+- **SUPABASE_URL** and **SUPABASE_KEY** make a free Supabase project at https://supabase.com, then go to Settings → API to get them
 
 ### Set up the database
 
