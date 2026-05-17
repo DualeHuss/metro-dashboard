@@ -53,12 +53,21 @@
 
       <h2>Technologies used</h2>
       <ul>
-        <li>HTML, CSS, vanilla JavaScript (frontend)</li>
-        <li>Node.js + Express (backend)</li>
-        <li>Chart.js — for the bar chart</li>
-        <li>Leaflet.js — for the map on the trains page</li>
-        <li>Supabase — database</li>
-        <li>Vercel — hosting/deployment</li>
+        <li>HTML, CSS, vanilla JavaScript (frontend — no frameworks)</li>
+        <li>Node.js + Express (backend server)</li>
+        <li><b>Chart.js</b> — JavaScript library used for the "most searched stations" bar chart on the home page</li>
+        <li><b>Leaflet.js</b> — JavaScript library used for the interactive station map on the trains page</li>
+        <li>Supabase — Postgres database for storing search history</li>
+        <li>Vercel — hosting and deployment</li>
+      </ul>
+
+      <h2>How the frontend connects to the backend</h2>
+      <p>All data on the frontend is loaded through the Fetch API — nothing is hardcoded. There are four fetch calls total:</p>
+      <ul>
+        <li><code>/api/stations</code> — loads the station list for the search dropdown</li>
+        <li><code>/api/predictions/:code</code> — gets live train arrivals for the selected station (calls WMATA)</li>
+        <li><code>/api/weather/:code</code> — gets current weather at the station (calls OpenWeather)</li>
+        <li><code>/api/searches</code> and <code>/api/searches/popular</code> — logs searches to Supabase and loads the chart data</li>
       </ul>
 
       <h2>What I'd improve with more time</h2>
